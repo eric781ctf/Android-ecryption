@@ -8,7 +8,6 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 public class security {
-
     public static byte[] encrypt(String plainText, String key) throws Exception{
         byte[] get = plainText.getBytes();
         
