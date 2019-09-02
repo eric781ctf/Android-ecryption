@@ -14,7 +14,7 @@
 	
 ### Change HexString to byte[] :
 	
-	public static byte[] hextobytes(String hexString){
+	public static byte[] hex_to_bytes(String hexString){
 		char[] hex = hexString.toCharArray();
 		int length = hex.length / 2;
 		byte[] rawData = new byte[length];
