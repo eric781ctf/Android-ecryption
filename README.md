@@ -4,16 +4,16 @@
 
 ### Put two byte[] into one using this method:
 
-		public static byte[] add(byte[] a, byte[] b){
+	public static byte[] add(byte[] a, byte[] b){
 
-			byte[] data = new byte[a.length + b.length];
+		byte[] data = new byte[a.length + b.length];
 		
-			System.arraycopy(a, 0, data, 0, a.length); 
+		System.arraycopy(a, 0, data, 0, a.length); 
 		
-			System.arraycopy(b, 0, data, a.length, b.length); 
+		System.arraycopy(b, 0, data, a.length, b.length); 
 			
-			return data;
-		}
+		return data;
+	}
 	
 	
 ### Change HexString to Byte :
