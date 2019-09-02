@@ -16,7 +16,7 @@
 	}
 	
 	
-### Change HexString to Byte :
+### Change HexString to byte[] :
 	
 	public static byte[] hextobytes(String hexString){
 	
