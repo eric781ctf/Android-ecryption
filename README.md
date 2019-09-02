@@ -42,6 +42,6 @@
 								
 			rawData [i] = (byte) value;
 			
-			}
+		}
 		 return rawData ;
 	}
