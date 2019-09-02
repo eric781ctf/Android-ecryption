@@ -48,14 +48,9 @@
 ### Change byte[] to HexString :
 
 	public static String byte_to_Hex(byte[] data){
-	
 		hexString = "";
-		
 		for(int i=0; i<b.length ; i++){
-			
 			hexString += Integer.toString((b[i] & 0xff) + 0x100,16).substring(1);
 		}
-		
 		return hexString;
-		
 	}
