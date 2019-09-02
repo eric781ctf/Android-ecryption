@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         BTN = findViewById(R.id.button);
         Do();
     }
+    
     public void Do(){
         final String Address = "0xdaF0eE10cD837166331dAfaE6d24f1E859Bd7ED7";
         final String TEST="0a4ee7313109b655532c4ae0c8179214eafea0e8d9335a95d58eac6b2d343bebd74201f7a0db578ba8620bd21de4ead3";
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    
     //加密
     public static String Encrypt(String sSrc, byte[] sKey,byte[] Iv) throws Exception {
         System.out.println("String sSrc.length = " + sSrc.length());
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         return byte2Hex(encrypted);
     }
+    
     // 解密
     public static String Decrypt(String sSrc, byte[] sKey,byte[] IV) throws Exception {
         try {
@@ -105,28 +108,24 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
+    
     //HexString 轉 Byte
     public static byte[] hexToBytes(String hexString) {
 
         char[] hex = hexString.toCharArray();
-        //轉rawData長度減半
         int length = hex.length / 2;
         byte[] rawData = new byte[length];
         for (int i = 0; i < length; i++) {
-            //先將hex資料轉10進位數值
             int high = Character.digit(hex[i * 2], 16);
             int low = Character.digit(hex[i * 2 + 1], 16);
-            //將第一個值的二進位值左平移4位,ex: 00001000 => 10000000 (8=>128)
-            //然後與第二個值的二進位值作聯集ex: 10000000 | 00001100 => 10001100 (137)
             int value = (high << 4) | low;
-            //與FFFFFFFF作補集
             if (value > 127)
                 value -= 256;
-            //最後轉回byte就OK
             rawData [i] = (byte) value;
         }
         return rawData ;
     }
+    
     //Byte 轉 HexString
     public static String byte2Hex(byte[] b) {
         result = "";
