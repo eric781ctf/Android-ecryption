@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
+                
                 try {
                     Decrypt = Decrypt(TEST, finalKEY, finalIV);
                     System.out.println("Decrypt : "+Decrypt);
@@ -77,9 +77,8 @@ public class MainActivity extends AppCompatActivity {
         Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");//"算法/模式/補碼方式"
         IvParameterSpec iv = new IvParameterSpec(Iv);//使用CBC模式，需要IV，增加加密算法的强度
         cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
-
         byte[] encrypted = cipher.doFinal(data3);
-
+        
         return byte2Hex(encrypted);
     }
     
@@ -96,15 +95,18 @@ public class MainActivity extends AppCompatActivity {
                 String originalString = new String(original);
                 String result[] = originalString.split("\b");
                 String need = result[0];
+                
                 return need;
             } catch (Exception e) {
                 System.out.println("Decrypted Failed");
                 System.out.println(e.toString());
+                
                 return null;
             }
         } catch (Exception ex) {
             System.out.println("Decrypted Failed");
             System.out.println(ex.toString());
+            
             return null;
         }
     }
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 value -= 256;
             rawData [i] = (byte) value;
         }
+        
         return rawData ;
     }
     
@@ -132,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         for (i=0 ; i<b.length ; i++){
             result += Integer.toString( ( b[i] & 0xff ) + 0x100, 16).substring( 1 );
         }
+        
         return result;
     }
 }
